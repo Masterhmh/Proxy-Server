@@ -4,7 +4,7 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
-  const targetUrl = 'https://script.google.com/macros/s/AKfycbxBu0eH5pYLGb4kPx03GhcYWL6QIP5LChAVRBLeAYx1I6QugGphj2iCzV29_000/exec';
+  const targetUrl = 'https://script.google.com/macros/s/AKfycbzZyf9O0PdeLgkoLRVtF8L1cPzfPmBuKf3qWkaZrCOPZz5PbFQ-Zyw4xRrB0D543cZTBw/exec';
 
   if (request.method === 'OPTIONS') {
     return new Response(null, {
