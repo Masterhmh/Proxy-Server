@@ -4,7 +4,7 @@ addEventListener('fetch', event => {
 
 async function handleRequest(request) {
   console.log("Request URL:", request.url); // Log URL nhận được từ Miniapp
-  const targetUrl = 'https://script.google.com/macros/s/AKfycbyLk7diZSSGkDVaU6B_C1WcUcyxqCPEC66EsH4Y4tdti2vT-uR5WKN4hwAIKZenWQ_E/exec';
+  const targetUrl = 'https://script.google.com/macros/s/AKfycbxZtyeURUeJ7x7WNE6IFrXC7upWWN6rqiNrHXaA9YYx_hg1-y5-ajIEAj95iZSWSM2jeA/exec';
 
   if (request.method === 'OPTIONS') {
     return new Response(null, {
