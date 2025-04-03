@@ -1,10 +1,10 @@
-// worker.js
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
 });
 
 async function handleRequest(request) {
-  const targetUrl = 'https://script.google.com/macros/s/AKfycbzZyf9O0PdeLgkoLRVtF8L1cPzfPmBuKf3qWkaZrCOPZz5PbFQ-Zyw4xRrB0D543cZTBw/exec';
+  console.log("Request URL:", request.url); // Log URL nhận được từ Miniapp
+  const targetUrl = 'https://script.google.com/macros/s/AKfycbyLk7diZSSGkDVaU6B_C1WcUcyxqCPEC66EsH4Y4tdti2vT-uR5WKN4hwAIKZenWQ_E/exec';
 
   if (request.method === 'OPTIONS') {
     return new Response(null, {
@@ -17,13 +17,14 @@ async function handleRequest(request) {
     });
   }
 
-  const modifiedRequest = new Request(targetUrl, {
+  const modifiedRequest = new Request(targetUrl + '?' + new URL(request.url).search, {
     method: request.method,
     headers: request.headers,
     body: request.body,
   });
 
   const response = await fetch(modifiedRequest);
+  console.log("Response from GAS:", response.status); // Log trạng thái phản hồi
 
   const newHeaders = new Headers(response.headers);
   newHeaders.set('Access-Control-Allow-Origin', 'https://test-miniapp.netlify.app');
